@@ -1,0 +1,23 @@
+@media screen and (max-width:1240px) {
+    .app__main-section__img{
+        width: 38%;
+      }
+}
+@media screen and (max-width:992px) {
+    .app__main-section__img{
+        width: 60%;
+        display: block;
+        margin: auto;
+      }
+}
+@media screen and (max-width:500px) {
+    .app__main-section__img{
+        width: 100%;
+      }
+      .app-carousel i{
+          font-size: 16px;
+      }
+      .app-carousel__img-container{
+        width: 100%;
+    }
+}

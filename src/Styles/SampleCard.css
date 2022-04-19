@@ -1,6 +1,7 @@
 .sample-card{
     position: relative;
     overflow: hidden;
+    margin: 6px 0;
 }
 .sample-card__hover{
     position: absolute;
@@ -20,4 +21,9 @@
 .sample-card:hover  .sample-card__hover{
     opacity: 1;
     top: 0;
+}
+.img-container{
+    width: 100%;
+    height: 300px;
+    background-size: cover;
 }
