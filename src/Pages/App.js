@@ -54,7 +54,7 @@ function App() {
   const closeCarousel = () => {
     setCurrentIndex(null);
   };
-  
+
   useEffect(() => {
     setTimeout(() => {
       fetch(
