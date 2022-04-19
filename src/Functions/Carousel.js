@@ -13,3 +13,4 @@ function nextImg(currentIndex, arrayLength) {
   }
 }
 export { previousImg, nextImg };
+

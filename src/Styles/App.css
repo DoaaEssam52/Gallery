@@ -5,9 +5,9 @@
   font-family: avenir;
   src: url(../fonts/Avenir/avenir_ff/AvenirLTStd-Book.otf) format("truetype");
 }
-/*********
-    APP
-**********/
+/******
+  APP
+******/
 body{
   background-color: #000000 !important;
 }
