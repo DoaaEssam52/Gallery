@@ -1,0 +1,23 @@
+/*********
+  FONTS
+**********/
+@font-face {
+  font-family: avenir;
+  src: url(../fonts/Avenir/avenir_ff/AvenirLTStd-Book.otf) format("truetype");
+}
+/*********
+  APP
+**********/
+body{
+  background-color: #000000;
+  font-family: avenir;
+}
+.app{
+  color:white;
+}
+.app__main-title{
+  text-align: center;
+  margin: 25px 0 35px;
+  letter-spacing: 0.3rem;
+  font-weight: 800;
+}
