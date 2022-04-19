@@ -1,23 +1,45 @@
-@media screen and (max-width:1240px) {
-    .app__main-section__img{
-        width: 38%;
-      }
+@media screen and (max-width: 900px) {
+  .app-carousel {
+    padding: 0;
+  }
+  .app-carousel__img-container {
+    margin: auto;
+    width: 70%;
+  }
 }
-@media screen and (max-width:992px) {
-    .app__main-section__img{
-        width: 60%;
-        display: block;
-        margin: auto;
-      }
-}
-@media screen and (max-width:500px) {
-    .app__main-section__img{
-        width: 100%;
-      }
-      .app-carousel i{
-          font-size: 16px;
-      }
-      .app-carousel__img-container{
-        width: 100%;
-    }
+
+@media screen and (max-width: 500px) {
+  .app__main-title {
+    text-align: left;
+    font-size: 20px;
+    margin: 15px 15px 30px;
+  }
+  .app-carousel__img-container p{
+    font-size: 15px;
+  }
+  .app-carousel-close {
+    top: 10px;
+  }
+  .app__main-section {
+    padding: 4px 5px 20px;
+  }
+  .img-container {
+    height: 250px;
+  }
+  .app-carousel__img-container {
+    width: 84%;
+  }
+  .app-carousel__img {
+    height: 250px;
+  }
+  .app-carousel i {
+    font-size: 16px;
+    margin: 0 5px;
+  }
+  .fa-angles-left{
+    left: 0;
+  }
+  .fa-angles-right{
+    right: 0;
+  }
 }

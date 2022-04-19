@@ -1,46 +1,60 @@
 import React, { useState, useEffect } from "react";
 
-/************
- STYLES FILES
-*************/
+/******************
+IMPORT STYLES FILES
+******************/
+import "bootstrap/dist/css/bootstrap.min.css";
 import "../Styles/App.css";
 import "../Styles/Loader.css";
 import "../Styles/SampleCard.css";
 import "../Styles/MediaQuery.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-/**********
- COMPONENTS 
-***********/
+
+/****************
+IMPORT COMPONENTS 
+****************/
 import Loader from "../Components/Loader";
 import SampleCard from "./../Components/SampleCard";
 
+/************************
+IMPORT CAROUSEL FUNCTIONS 
+*************************/
+import {previousImg} from './../Functions/Carousel';
+import {nextImg} from './../Functions/Carousel';
+
 function App() {
-  const [imagesData, setImagesData] = useState([]);
-  const [isLoaded, setLoading] = useState(false);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  useEffect(() => {
-    console.log("changed index=", currentIndex);
-  }, [currentIndex]);
+  const [imagesData, setImagesData] = useState([]);  //returned images from backend
+  const [isLoaded, setLoading] = useState(false); //loading first
+  const [currentIndex, setCurrentIndex] = useState(null); //current images's index
+
+  /**********************
+   USER ZOOMS IN AN IMAGE
+  **********************/
   const cardClicked = (data) => {
     setCurrentIndex(data);
   };
+
+  /*****************************
+   HANDLE CLICKING PREVIOUS ICON
+  *****************************/
   const previousImage = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
-    } else {
-      setCurrentIndex(imagesData.length - 1);
-    }
+    setCurrentIndex(previousImg(currentIndex,imagesData.length));
   };
+
+  /***************************
+    HANDLE CLICKING NEXT ICON
+  ****************************/
   const nextImage = () => {
-    if (currentIndex < imagesData.length - 1) {
-      setCurrentIndex(currentIndex + 1);
-    } else {
-      setCurrentIndex(0);
-    }
+    setCurrentIndex(nextImg(currentIndex,imagesData.length));
   };
+  
+  /*************************
+  HANDLE CLICKING CLOSE ICON
+  **************************/
   const closeCarousel = () => {
     setCurrentIndex(null);
   };
+  
   useEffect(() => {
     setTimeout(() => {
       fetch(
@@ -66,10 +80,13 @@ function App() {
           <h1 className="app__main-title">
             <i>Gallery</i>
           </h1>
-          <div className="app__main-section">
+          <div className="row app__main-section">
             {imagesData.map((item, index) => {
               return (
-                <div key={item.uuid} className="app__main-section__img">
+                <div
+                  key={item.uuid}
+                  className="app__main-section__img col-12 col-sm-8 col-md-6 col-lg-3 col-xl-4"
+                >
                   <SampleCard
                     cardClicked={(data) => cardClicked(data)}
                     data={{ ...item, index }}
@@ -85,10 +102,13 @@ function App() {
                   className="fa-solid fa-angles-left"
                   onClick={() => previousImage()}
                 ></i>
-                <div className="app-carousel__img-container">
-                  <div className="app-carousel__img" style={{backgroundImage:`url("${imagesData[currentIndex].url}")`}}>
-
-                  </div>
+                <div className={`app-carousel__img-container`}>
+                  <div
+                    className="app-carousel__img"
+                    style={{
+                      backgroundImage: `url("${imagesData[currentIndex].url}")`,
+                    }}
+                  ></div>
                   <p>{imagesData[currentIndex].name}</p>
                 </div>
                 <i
@@ -103,7 +123,7 @@ function App() {
                 ></i>
               </div>
               <div className="app-carousel__counter">
-                image {currentIndex+1} / {imagesData.length}
+                image {currentIndex + 1} / {imagesData.length}
               </div>
             </>
           )}
