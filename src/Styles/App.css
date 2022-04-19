@@ -1,23 +1,38 @@
 /*********
-  FONTS
+   FONTS
 **********/
 @font-face {
   font-family: avenir;
   src: url(../fonts/Avenir/avenir_ff/AvenirLTStd-Book.otf) format("truetype");
 }
 /*********
-  APP
+    APP
 **********/
 body{
   background-color: #000000;
-  font-family: avenir;
 }
 .app{
   color:white;
 }
 .app__main-title{
   text-align: center;
-  margin: 25px 0 35px;
+  margin: 15px 0 30px;
   letter-spacing: 0.3rem;
-  font-weight: 800;
+  font-weight: 700;
+}
+.app__main-section{
+ text-align: center;
+ padding-bottom: 20px;
+}
+.app__main-section__img{
+  display: inline-block;
+  width: 27%;
+  margin: 10px 14px;
+}
+.app__main-section__img img{
+  width: 100%;
+  height: 340px;
+}
+i{
+  cursor: pointer;
 }

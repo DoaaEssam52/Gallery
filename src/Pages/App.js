@@ -5,11 +5,13 @@ import React, { useState, useEffect } from "react";
 *************/
 import "../Styles/App.css";
 import "../Styles/Loader.css";
-
+import "../Styles/SampleCard.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 /**********
  COMPONENTS 
 ***********/
 import Loader from "../Components/Loader";
+import SampleCard from "./../Components/SampleCard";
 
 function App() {
   const [imagesData, setImagesData] = useState([]);
@@ -36,7 +38,20 @@ function App() {
     <div className="app">
       {isLoaded ? (
         <>
-          <h1 className="app__main-title"><i>Gallery</i></h1>
+          <h1 className="app__main-title">
+            <i>Gallery</i>
+          </h1>
+          <div className="app__main-section">
+            {imagesData.map((item, index) => {
+              return (
+                <div key={item.uuid} className="app__main-section__img">
+                  <SampleCard
+                    data={{ ...item, index }}
+                  />
+                </div>
+              );
+            })}
+          </div>
         </>
       ) : (
         <Loader />
